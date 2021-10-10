@@ -5,12 +5,12 @@ using System.Text;
 
 namespace FootballManager.Domain.Entities
 {
-    public class Team : AuditableBaseEntity
+    public class Stadium : AuditableBaseEntity
     {
         public string Name { get; set; }
         public string City { get; set; }
-        public List<TeamPlayerAssignment> Players { get; set; }
-        public TeamStadiumAssignment StadiumAssignment { get; set; }
+        public int Capacity { get; set; }
+        public List<TeamStadiumAssignment> Teams { get; set; }
 
     }
 }

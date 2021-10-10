@@ -41,8 +41,4 @@
     <ProjectReference Include="..\FootballManager.Infrastructure.Shared\FootballManager.Infrastructure.Shared.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\v1\" />
-  </ItemGroup>
-
 </Project>
