@@ -13,9 +13,9 @@ namespace FootballManager.Application.Features.Players.Commands.CreatePlayer
     {
         public string FirstName { get; set; }
         public string Surname { get; set; }
-        public int Height { get; set; }
-        public int Weight { get; set; }
-        public int IdNo { get; set; }
+        public decimal Height { get; set; }
+        public decimal Weight { get; set; }
+        public Int64 IdNo { get; set; }
         public DateTime DateOfBirth { get; set; }
     }
     public class CreatePlayerCommandHandler : IRequestHandler<CreatePlayerCommand, Response<int>>

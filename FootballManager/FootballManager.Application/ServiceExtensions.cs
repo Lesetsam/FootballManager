@@ -1,13 +1,9 @@
 ﻿using AutoMapper;
 using FluentValidation;
 using FootballManager.Application.Behaviours;
-using FootballManager.Application.Features.Players.Commands.CreatePlayer;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
 using System.Reflection;
-using System.Text;
 
 namespace FootballManager.Application
 {

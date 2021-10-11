@@ -34,7 +34,7 @@ namespace FootballManager.Application.Features.Players.Commands.CreatePlayer
 
         }
 
-        private async Task<bool> IsUniqueIdNo(int IdNo, CancellationToken cancellationToken)
+        private async Task<bool> IsUniqueIdNo(Int64 IdNo, CancellationToken cancellationToken)
         {
             return await _playerRepository.IsUniqueIdNoAsync(IdNo);
         }

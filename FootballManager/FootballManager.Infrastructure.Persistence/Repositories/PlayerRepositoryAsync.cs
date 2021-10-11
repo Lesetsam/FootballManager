@@ -19,7 +19,7 @@ namespace FootballManager.Infrastructure.Persistence.Repositories
             _players = dbContext.Set<Player>();
         }
 
-        public Task<bool> IsUniqueIdNoAsync(int idNo)
+        public Task<bool> IsUniqueIdNoAsync(Int64 idNo)
         {
             return _players
                 .AllAsync(p => p.IdNo != idNo);

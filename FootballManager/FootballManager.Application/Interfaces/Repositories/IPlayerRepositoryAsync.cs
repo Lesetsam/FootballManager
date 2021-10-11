@@ -8,6 +8,6 @@ namespace FootballManager.Application.Interfaces.Repositories
 {
     public interface IPlayerRepositoryAsync : IGenericRepositoryAsync<Player>
     {
-        Task<bool> IsUniqueIdNoAsync(int idNo);
+        Task<bool> IsUniqueIdNoAsync(Int64 idNo);
     }
 }
