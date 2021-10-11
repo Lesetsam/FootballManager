@@ -15,10 +15,10 @@ namespace FootballManager.Application.Features.Players.Commands.UpdatePlayer
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string Surname { get; set; }
-        public int IdNo { get; set; }
+        public Int64 IdNo { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public int Height { get; set; }
-        public int Weight { get; set; }
+        public decimal Height { get; set; }
+        public decimal Weight { get; set; }
         public class UpdatePlayerCommandHandler : IRequestHandler<UpdatePlayerCommand, Response<int>>
         {
             private readonly IPlayerRepositoryAsync _playerRepository;

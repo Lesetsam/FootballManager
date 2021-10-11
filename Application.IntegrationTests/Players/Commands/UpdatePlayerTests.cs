@@ -1,31 +1,39 @@
 ﻿using FluentAssertions;
+using FootballManager.Application.Exceptions;
 using FootballManager.Application.Features.Players.Commands.CreatePlayer;
+using FootballManager.Application.Features.Players.Commands.UpdatePlayer;
 using FootballManager.Domain.Entities;
 using NUnit.Framework;
 using System;
-using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Application.IntegrationTests.Players.Commands
 {
     using static Testing;
-    public class CreatePlayerTests : TestBase
+    public class UpdatePlayerTests : TestBase
     {
         [Test]
-        public void ShouldRequireMinimumFields()
+        public void ShouldRequireValidPlayerId()
         {
-            var command = new CreatePlayerCommand();
+            var command = new UpdatePlayerCommand
+            {
+                Id = 99,
+                IdNo = 1234569874253
+            };
 
             FluentActions.Invoking(() =>
-                SendAsync(command)).Should().ThrowAsync<ValidationException>();
+                SendAsync(command)).Should().ThrowAsync<NotFoundException>();
         }
 
         [Test]
-        public async Task ShouldCreatePlayer()
+        public async Task ShouldUpdateTodoItem()
         {
             var userId = await RunAsDefaultUserAsync();
 
-            var command = new CreatePlayerCommand
+            var itemId = await SendAsync(new CreatePlayerCommand
             {
                 FirstName = "Name",
                 Surname = "LastName",
@@ -33,13 +41,23 @@ namespace Application.IntegrationTests.Players.Commands
                 IdNo = 012346789102,
                 Height = 65.5M,
                 Weight = 71.5M
+            });
+
+            var command = new UpdatePlayerCommand
+            {
+                Id = itemId.Data,
+                FirstName = "Updated Name",
+                Surname = "Updated LastName",
+                DateOfBirth = DateTime.Now,
+                IdNo = 012346789102,
+                Height = 65.5M,
+                Weight = 71.5M
             };
 
-            var itemId = await SendAsync(command);
+            await SendAsync(command);
 
             var item = await FindAsync<Player>(itemId);
 
-            item.Should().NotBeNull();
             item.FirstName.Should().Be(command.FirstName);
             item.Surname.Should().Be(command.Surname);
             item.DateOfBirth.Should().Be(command.DateOfBirth);

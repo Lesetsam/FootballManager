@@ -19,9 +19,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MediatR;
 
-namespace Application.IntegrationTests
-{
-    [SetUpFixture]
+   [SetUpFixture]
     public class Testing
     {
         private static IConfigurationRoot _configuration;
@@ -45,7 +43,7 @@ namespace Application.IntegrationTests
 
             services.AddSingleton(Mock.Of<IWebHostEnvironment>(w =>
                 w.EnvironmentName == "Development" &&
-                w.ApplicationName == "FootballManager.WebUI"));
+                w.ApplicationName == "FootballManager.WebApi"));
 
             services.AddLogging();
 
@@ -175,4 +173,4 @@ namespace Application.IntegrationTests
         {
         }
     }
-}
+
