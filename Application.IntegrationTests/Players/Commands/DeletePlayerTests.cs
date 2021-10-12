@@ -16,7 +16,7 @@ namespace Application.IntegrationTests.Players.Commands
     public class DeletePlayerTests : TestBase
     {
         [Test]
-        public void ShouldRequireValidTodoItemId()
+        public void ShouldRequireValidPlayerId()
         {
             var command = new DeletePlayerByIdCommand { Id = 99 };
 
@@ -25,7 +25,7 @@ namespace Application.IntegrationTests.Players.Commands
         }
 
         [Test]
-        public async Task ShouldDeleteTodoItem()
+        public async Task ShouldDeletePlayer()
         {
 
             var itemId = await SendAsync(new CreatePlayerCommand

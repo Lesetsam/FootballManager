@@ -29,7 +29,7 @@ namespace Application.IntegrationTests.Players.Commands
         }
 
         [Test]
-        public async Task ShouldUpdateTodoItem()
+        public async Task ShouldUpdatePlayer()
         {
             var userId = await RunAsDefaultUserAsync();
 

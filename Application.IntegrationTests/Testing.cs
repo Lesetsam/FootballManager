@@ -89,7 +89,7 @@ using MediatR;
 
         public static async Task<string> RunAsDefaultUserAsync()
         {
-            return await RunAsUserAsync("test2@local", "Testing1234!", new string[] { });
+            return await RunAsUserAsync("test3@local", "Testing1234!", new string[] { });
         }
 
         public static async Task<string> RunAsAdministratorAsync()
@@ -133,7 +133,8 @@ using MediatR;
 
         public static async Task ResetState()
         {
-            await _checkpoint.Reset(_configuration.GetConnectionString("DefaultConnection"));
+            //await _checkpoint.Reset(_configuration.GetConnectionString("DefaultConnection"));
+            await _checkpoint.Reset(_configuration.GetConnectionString("IdentityConnection"));
             _currentUserId = null;
         }
 

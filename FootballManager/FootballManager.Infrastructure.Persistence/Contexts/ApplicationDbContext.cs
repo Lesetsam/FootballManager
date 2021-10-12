@@ -2,11 +2,7 @@
 using FootballManager.Domain.Common;
 using FootballManager.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -24,8 +20,8 @@ namespace FootballManager.Infrastructure.Persistence.Contexts
             _authenticatedUser = authenticatedUser;
         }
         public DbSet<Player> Players { get; set; }
-        public DbSet<Team> Teams { get; set; }
-        public DbSet<Stadium> Stadiums { get; set; }
+        //public DbSet<Team> Teams { get; set; }
+        //public DbSet<Stadium> Stadiums { get; set; }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
         {
@@ -57,4 +53,15 @@ namespace FootballManager.Infrastructure.Persistence.Contexts
             base.OnModelCreating(builder);
         }
     }
+
+    //public class ApplicationDbContextFactory : IDesignTimeDbContextFactory<ApplicationDbContext>
+    //{
+    //    public ApplicationDbContext CreateDbContext(string[] args)
+    //    {
+    //        var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
+    //        optionsBuilder.UseSqlServer("connection string");
+
+    //        return new ApplicationDbContext(optionsBuilder.Options);
+    //    }
+    //}
 }
