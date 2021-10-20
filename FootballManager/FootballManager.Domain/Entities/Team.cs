@@ -9,8 +9,7 @@ namespace FootballManager.Domain.Entities
     {
         public string Name { get; set; }
         public string City { get; set; }
-        public List<TeamPlayerAssignment> Players { get; set; }
-        public TeamStadiumAssignment StadiumAssignment { get; set; }
+        public ICollection<TeamPlayerAssignment> Players { get; set; }
 
     }
 }

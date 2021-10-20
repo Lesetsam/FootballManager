@@ -20,10 +20,8 @@
     <ProjectReference Include="..\FootballManager.Domain\FootballManager.Domain.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Features\Teams\Commands\CreateTeam\" />
     <Folder Include="Features\Teams\Commands\DeleteTeamById\" />
     <Folder Include="Features\Teams\Commands\UpdateTeam\" />
-    <Folder Include="Features\Teams\Commands\" />
     <Folder Include="Features\Teams\Queries\GetAllTeams\" />
     <Folder Include="Features\Teams\Queries\GetTeamById\" />
   </ItemGroup>

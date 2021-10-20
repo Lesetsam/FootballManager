@@ -9,5 +9,7 @@ namespace FootballManager.Infrastructure.Shared.Services
     public class DateTimeService : IDateTimeService
     {
         public DateTime NowUtc => DateTime.UtcNow;
+
+        public DateTime EndOfTime => new DateTime(9999,1,1);
     }
 }

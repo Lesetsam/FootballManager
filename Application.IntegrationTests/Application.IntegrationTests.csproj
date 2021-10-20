@@ -24,4 +24,8 @@
     <ProjectReference Include="..\FootballManager\FootballManager.WebApi\FootballManager.WebApi.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Teams\Queries\" />
+  </ItemGroup>
+
 </Project>

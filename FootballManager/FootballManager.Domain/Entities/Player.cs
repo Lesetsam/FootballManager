@@ -13,7 +13,7 @@ namespace FootballManager.Domain.Entities
         public DateTime DateOfBirth { get; set; }
         public decimal Height { get; set; }
         public decimal Weight { get; set; }
-        //public TeamPlayerAssignment TeamAssignment { get; set; }
+        public ICollection<TeamPlayerAssignment> TeamAssignments { get; set; }
 
     }
 }

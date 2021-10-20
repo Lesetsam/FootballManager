@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.IntegrationTests.Players.Commands
+namespace Application.IntegrationTests.Features.Players.Commands
 {
     using static Testing;
     public class DeletePlayerTests : TestBase
@@ -43,7 +43,7 @@ namespace Application.IntegrationTests.Players.Commands
                 Id = itemId.Data
             });
 
-            var item = await FindAsync<Player>(itemId);
+            var item = await FindAsync<Player>(itemId.Data);
 
             item.Should().BeNull();
         }

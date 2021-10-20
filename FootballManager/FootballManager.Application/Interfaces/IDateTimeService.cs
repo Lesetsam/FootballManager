@@ -7,5 +7,6 @@ namespace FootballManager.Application.Interfaces
     public interface IDateTimeService
     {
         DateTime NowUtc { get; }
+        DateTime EndOfTime { get; }
     }
 }

@@ -30,7 +30,8 @@ namespace FootballManager.Infrastructure.Persistence
             }
             #region Repositories
             services.AddTransient(typeof(IGenericRepositoryAsync<>), typeof(GenericRepositoryAsync<>));
-            services.AddTransient<IPlayerRepositoryAsync, PlayerRepositoryAsync>();
+            services.AddTransient<IPlayerRepositoryAsync, PlayerRepositoryAsync>(); 
+            services.AddTransient<ITeamRepositoryAsync, TeamRepositoryAsync>();
             #endregion
         }
     }

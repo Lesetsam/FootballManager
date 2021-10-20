@@ -20,8 +20,9 @@ namespace FootballManager.Infrastructure.Persistence.Contexts
             _authenticatedUser = authenticatedUser;
         }
         public DbSet<Player> Players { get; set; }
-        //public DbSet<Team> Teams { get; set; }
-        //public DbSet<Stadium> Stadiums { get; set; }
+        public DbSet<Team> Teams { get; set; }
+        public DbSet<TeamPlayerAssignment> TeamPlayerAssignments { get; set; }
+        public DbSet<Stadium> Stadiums { get; set; }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
         {
@@ -32,6 +33,8 @@ namespace FootballManager.Infrastructure.Persistence.Contexts
                     case EntityState.Added:
                         entry.Entity.Created = _dateTime.NowUtc;
                         entry.Entity.CreatedBy = _authenticatedUser.UserId;
+                        entry.Entity.FirstValid = _dateTime.NowUtc;
+                        entry.Entity.LastValid = _dateTime.EndOfTime;
                         break;
                     case EntityState.Modified:
                         entry.Entity.LastModified = _dateTime.NowUtc;
@@ -59,7 +62,7 @@ namespace FootballManager.Infrastructure.Persistence.Contexts
     //    public ApplicationDbContext CreateDbContext(string[] args)
     //    {
     //        var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
-    //        optionsBuilder.UseSqlServer("connection string");
+    //        optionsBuilder.UseSqlServer("");
 
     //        return new ApplicationDbContext(optionsBuilder.Options);
     //    }

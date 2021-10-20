@@ -10,7 +10,7 @@ namespace FootballManager.Domain.Entities
         public string Name { get; set; }
         public string City { get; set; }
         public int Capacity { get; set; }
-        public List<TeamStadiumAssignment> Teams { get; set; }
+        public ICollection<TeamStadiumAssignment> Teams { get; set; }
 
     }
 }

@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.IntegrationTests.Players.Queries
+namespace Application.IntegrationTests.Features.Players.Queries
 {
     using static Testing;
     public class GetPlayersTests : TestBase
@@ -19,7 +19,7 @@ namespace Application.IntegrationTests.Players.Queries
         [Test]
         public async Task ShouldReturnAllPlayers()
         {
-            var itemId = await SendAsync(new CreatePlayerCommand
+            await SendAsync(new CreatePlayerCommand
             {
                 FirstName = "Name",
                 Surname = "LastName",

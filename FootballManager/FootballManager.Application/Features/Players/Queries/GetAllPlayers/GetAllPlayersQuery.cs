@@ -1,6 +1,7 @@
 ﻿
 using AutoMapper;
 using FootballManager.Application.Features.Players.Queries.GetAllPlayers;
+using FootballManager.Application.Filters;
 using FootballManager.Application.Interfaces.Repositories;
 using FootballManager.Application.Wrappers;
 using MediatR;
@@ -27,7 +28,7 @@ namespace Application.Features.Players.Queries.GetAllPlayers
 
         public async Task<PagedResponse<IEnumerable<GetAllPlayersViewModel>>> Handle(GetAllPlayersQuery request, CancellationToken cancellationToken)
         {
-            var validFilter = _mapper.Map<GetAllPlayersParameter>(request);
+            var validFilter = _mapper.Map<RequestParameter>(request);
             var player = await _playerRepository.GetPagedReponseAsync(validFilter.PageNumber, validFilter.PageSize);
             var playerViewModel = _mapper.Map<IEnumerable<GetAllPlayersViewModel>>(player);
             return new PagedResponse<IEnumerable<GetAllPlayersViewModel>>(playerViewModel, validFilter.PageNumber, validFilter.PageSize);

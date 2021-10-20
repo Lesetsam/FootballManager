@@ -11,5 +11,7 @@ namespace FootballManager.Domain.Common
         public DateTime Created { get; set; }
         public string LastModifiedBy { get; set; }
         public DateTime? LastModified { get; set; }
+        public DateTime FirstValid { get; set; }
+        public DateTime LastValid { get; set; }
     }
 }

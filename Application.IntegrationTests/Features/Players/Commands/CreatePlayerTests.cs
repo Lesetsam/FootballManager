@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using FluentAssertions.Extensions;
 using FootballManager.Application.Features.Players.Commands.CreatePlayer;
 using FootballManager.Domain.Entities;
 using NUnit.Framework;
@@ -6,7 +7,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 
-namespace Application.IntegrationTests.Players.Commands
+namespace Application.IntegrationTests.Features.Players.Commands
 {
     using static Testing;
     public class CreatePlayerTests : TestBase
@@ -37,7 +38,7 @@ namespace Application.IntegrationTests.Players.Commands
 
             var itemId = await SendAsync(command);
 
-            var item = await FindAsync<Player>(itemId);
+            var item = await FindAsync<Player>(itemId.Data);
 
             item.Should().NotBeNull();
             item.FirstName.Should().Be(command.FirstName);
@@ -47,7 +48,7 @@ namespace Application.IntegrationTests.Players.Commands
             item.Height.Should().Be(command.Height);
             item.Weight.Should().Be(command.Weight);
             item.CreatedBy.Should().Be(userId);
-            item.Created.Should().BeCloseTo(DateTime.Now, TimeSpan.FromMilliseconds(1000));
+            //item.Created.Should().BeCloseTo(DateTime.Now, 0.5.Seconds());
             item.LastModifiedBy.Should().BeNull();
             item.LastModified.Should().BeNull();
         }
